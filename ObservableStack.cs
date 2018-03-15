@@ -11,10 +11,10 @@ namespace Delegates.Observers
 	public class StackOperationsLogger
 	{
 		private readonly Observer observer = new Observer();
-		public void SubscribeOn<T>(ObservableStack<T> stack)
-		{
-			stack.Add(observer);
-		}
+		//public void SubscribeOn<T>(ObservableStack<T> stack)
+		//{
+		//	stack.Add(observer);
+		//}
 
 		public string GetLog()
 		{
@@ -39,26 +39,29 @@ namespace Delegates.Observers
 
 	public interface IObservable
 	{
-		void Add(IObserver observer);
-		void Remove(IObserver observer);
-		void Notify(object eventData);
+		//void Add(IObserver observer);
+		//void Remove(IObserver observer);
+		//void Notify(object eventData);
+
+		event Action<object> NotifyEvent;
 	}
 
 
 	public class ObservableStack<T> : IObservable
 	{
 		List<IObserver> observers = new List<IObserver>();
+		public event Action<object> NotifyEvent;
 
-		public void Add(IObserver observer)
-		{
-			observers.Add(observer);
-		}
+		//public void Add(IObserver observer)
+		//{
+		//	observers.Add(observer);
+		//}
 
-		public void Notify(object eventData)
-		{
-			foreach (var observer in observers)
-				observer.HandleEvent(eventData);
-		}
+		//public void Notify(object eventData)
+		//{
+		//	foreach (var observer in observers)
+		//		observer.HandleEvent(eventData);
+		//}
 
 		public void Remove(IObserver observer)
 		{
@@ -70,7 +73,7 @@ namespace Delegates.Observers
 		public void Push(T obj)
 		{
 			data.Add(obj);
-			Notify(new StackEventData<T> { IsPushed = true, Value = obj });
+			NotifyEvent(new StackEventData<T> { IsPushed = true, Value = obj });
 		}
 
 		public T Pop()
@@ -78,7 +81,7 @@ namespace Delegates.Observers
 			if (data.Count == 0)
 				throw new InvalidOperationException();
 			var result = data[data.Count - 1];
-			Notify(new StackEventData<T> { IsPushed = false, Value = result });
+			NotifyEvent(new StackEventData<T> { IsPushed = false, Value = result });
 			return result;
 
 		}
