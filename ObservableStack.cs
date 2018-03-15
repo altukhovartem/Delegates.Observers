@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Delegates.Observers
 {
-
 	public class StackOperationsLogger
 	{
 		private readonly Observer observer = new Observer();
-		//public void SubscribeOn<T>(ObservableStack<T> stack)
-		//{
-		//	stack.Add(observer);
-		//}
+		
+		public void SubscribeOn<T>(ObservableStack<T> stack)
+		{
+			stack.Add(observer);
+		}
 
 		public string GetLog()
 		{
@@ -22,12 +22,12 @@ namespace Delegates.Observers
 		}
 	}
 
-	public interface IObserver
-	{
-		void HandleEvent(object eventData);
-	}
+	//public interface IObserver
+	//{
+	//	void HandleEvent(object eventData);
+	//}
 
-	public class Observer : IObserver
+	public class Observer
 	{
 		public StringBuilder Log = new StringBuilder();
 
@@ -37,25 +37,26 @@ namespace Delegates.Observers
 		}
 	}
 
-	public interface IObservable
+	//public interface IObservable
+	//{
+	//	void Add(IObserver observer);
+	//	void Remove(IObserver observer);
+	//	//void Notify(object eventData);
+
+	//	event MyDelegate NotifyEvent;
+	//}
+
+	public delegate void MyDelegate(object obj);
+
+	public class ObservableStack<T>
 	{
-		//void Add(IObserver observer);
-		//void Remove(IObserver observer);
-		//void Notify(object eventData);
+		List<Observer> observers = new List<Observer>();
+		public event MyDelegate NotifyEvent;
 
-		event Action<object> NotifyEvent;
-	}
-
-
-	public class ObservableStack<T> : IObservable
-	{
-		List<IObserver> observers = new List<IObserver>();
-		public event Action<object> NotifyEvent;
-
-		//public void Add(IObserver observer)
-		//{
-		//	observers.Add(observer);
-		//}
+		public void Add(Observer observer)
+		{
+			NotifyEvent += observer.HandleEvent;
+		}
 
 		//public void Notify(object eventData)
 		//{
@@ -63,9 +64,9 @@ namespace Delegates.Observers
 		//		observer.HandleEvent(eventData);
 		//}
 
-		public void Remove(IObserver observer)
+		public void Remove(Observer observer)
 		{
-			observers.Remove(observer);
+			NotifyEvent -= observer.HandleEvent;
 		}
 
 		List<T> data = new List<T>();
@@ -78,14 +79,12 @@ namespace Delegates.Observers
 
 		public T Pop()
 		{
-			if (data.Count == 0)
-				throw new InvalidOperationException();
-			var result = data[data.Count - 1];
-			NotifyEvent(new StackEventData<T> { IsPushed = false, Value = result });
-			return result;
-
+		 	if (data.Count == 0)
+		 		throw new InvalidOperationException();
+		 	var result = data[data.Count - 1];
+		 	NotifyEvent(new StackEventData<T> { IsPushed = false, Value = result });
+		 	return result;
+			
 		}
 	}
-
-
 }
