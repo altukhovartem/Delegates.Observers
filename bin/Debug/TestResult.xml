@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<test-run id="2" name="Delegates.Observers.exe" fullname="C:/MyRepo/Delegates.Observers/bin/Debug/Delegates.Observers.exe" testcasecount="2" result="Passed" start-time="2018-03-15 20:11:42Z" end-time="2018-03-15 20:11:42Z" duration="0.103809" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="2" random-seed="1435236151">
+<test-run id="2" name="Delegates.Observers.exe" fullname="C:/MyRepo/Delegates.Observers/bin/Debug/Delegates.Observers.exe" testcasecount="2" result="Passed" start-time="2018-03-19 15:38:45Z" end-time="2018-03-19 15:38:45Z" duration="0.044969" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="2" random-seed="1414131697">
   <command-line><![CDATA["C:\MyRepo\Delegates.Observers\bin\Debug\Delegates.Observers.exe"   ]]></command-line>
   <filter />
-  <test-suite type="Assembly" id="1003" name="Delegates.Observers.exe" fullname="C:/MyRepo/Delegates.Observers/bin/Debug/Delegates.Observers.exe" runstate="Runnable" testcasecount="2" result="Passed" start-time="2018-03-15 20:11:42Z" end-time="2018-03-15 20:11:42Z" duration="0.103809" total="2" passed="2" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="2">
-    <environment framework-version="3.6.0.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\MyRepo\Delegates.Observers\bin\Debug" machine-name="DESKTOP-MJHFLF4" user="altuk" user-domain="DESKTOP-MJHFLF4" culture="en-US" uiculture="en-US" os-architecture="x86" />
+  <test-suite type="Assembly" id="1003" name="Delegates.Observers.exe" fullname="C:/MyRepo/Delegates.Observers/bin/Debug/Delegates.Observers.exe" runstate="Runnable" testcasecount="2" result="Passed" start-time="2018-03-19 15:38:45Z" end-time="2018-03-19 15:38:45Z" duration="0.044969" total="2" passed="2" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="2">
+    <environment framework-version="3.6.0.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\MyRepo\Delegates.Observers\bin\Debug" machine-name="MSK-WS-120" user="aaltukhov" user-domain="INT" culture="ru-RU" uiculture="en-US" os-architecture="x86" />
     <settings>
       <setting name="WorkDirectory" value="C:\MyRepo\Delegates.Observers\bin\Debug" />
       <setting name="NumberOfTestWorkers" value="4" />
     </settings>
     <properties>
-      <property name="_PID" value="1288" />
+      <property name="_PID" value="17576" />
       <property name="_APPDOMAIN" value="Delegates.Observers.exe" />
     </properties>
-    <test-suite type="TestSuite" id="1004" name="Delegates" fullname="Delegates" runstate="Runnable" testcasecount="2" result="Passed" start-time="2018-03-15 20:11:42Z" end-time="2018-03-15 20:11:42Z" duration="0.079111" total="2" passed="2" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="2">
-      <test-suite type="TestSuite" id="1005" name="Observers" fullname="Delegates.Observers" runstate="Runnable" testcasecount="2" result="Passed" start-time="2018-03-15 20:11:42Z" end-time="2018-03-15 20:11:42Z" duration="0.075845" total="2" passed="2" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="2">
-        <test-suite type="TestFixture" id="1000" name="ObservableStack_Tests" fullname="Delegates.Observers.ObservableStack_Tests" classname="Delegates.Observers.ObservableStack_Tests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2018-03-15 20:11:42Z" end-time="2018-03-15 20:11:42Z" duration="0.066609" total="2" passed="2" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="2">
-          <test-case id="1001" name="Log_ShouldBeEmpty_AfterCreation" fullname="Delegates.Observers.ObservableStack_Tests.Log_ShouldBeEmpty_AfterCreation" methodname="Log_ShouldBeEmpty_AfterCreation" classname="Delegates.Observers.ObservableStack_Tests" runstate="Runnable" seed="48084194" result="Passed" start-time="2018-03-15 20:11:42Z" end-time="2018-03-15 20:11:42Z" duration="0.037081" asserts="1" />
-          <test-case id="1002" name="Log_ShouldContainAllOperations" fullname="Delegates.Observers.ObservableStack_Tests.Log_ShouldContainAllOperations" methodname="Log_ShouldContainAllOperations" classname="Delegates.Observers.ObservableStack_Tests" runstate="Runnable" seed="405024622" result="Passed" start-time="2018-03-15 20:11:42Z" end-time="2018-03-15 20:11:42Z" duration="0.004386" asserts="1" />
+    <test-suite type="TestSuite" id="1004" name="Delegates" fullname="Delegates" runstate="Runnable" testcasecount="2" result="Passed" start-time="2018-03-19 15:38:45Z" end-time="2018-03-19 15:38:45Z" duration="0.034085" total="2" passed="2" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="2">
+      <test-suite type="TestSuite" id="1005" name="Observers" fullname="Delegates.Observers" runstate="Runnable" testcasecount="2" result="Passed" start-time="2018-03-19 15:38:45Z" end-time="2018-03-19 15:38:45Z" duration="0.030238" total="2" passed="2" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="2">
+        <test-suite type="TestFixture" id="1000" name="ObservableStack_Tests" fullname="Delegates.Observers.ObservableStack_Tests" classname="Delegates.Observers.ObservableStack_Tests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2018-03-19 15:38:45Z" end-time="2018-03-19 15:38:45Z" duration="0.024708" total="2" passed="2" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="2">
+          <test-case id="1001" name="Log_ShouldBeEmpty_AfterCreation" fullname="Delegates.Observers.ObservableStack_Tests.Log_ShouldBeEmpty_AfterCreation" methodname="Log_ShouldBeEmpty_AfterCreation" classname="Delegates.Observers.ObservableStack_Tests" runstate="Runnable" seed="798115342" result="Passed" start-time="2018-03-19 15:38:45Z" end-time="2018-03-19 15:38:45Z" duration="0.011234" asserts="1" />
+          <test-case id="1002" name="Log_ShouldContainAllOperations" fullname="Delegates.Observers.ObservableStack_Tests.Log_ShouldContainAllOperations" methodname="Log_ShouldContainAllOperations" classname="Delegates.Observers.ObservableStack_Tests" runstate="Runnable" seed="140719975" result="Passed" start-time="2018-03-19 15:38:45Z" end-time="2018-03-19 15:38:45Z" duration="0.001418" asserts="1" />
         </test-suite>
       </test-suite>
     </test-suite>

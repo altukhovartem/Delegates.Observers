@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Delegates.Observers
 {
@@ -13,7 +11,7 @@ namespace Delegates.Observers
 		
 		public void SubscribeOn<T>(ObservableStack<T> stack)
 		{
-			stack.Add(observer);
+			stack.NotifyEvent += observer.HandleEvent;
 		}
 
 		public string GetLog()
@@ -21,11 +19,6 @@ namespace Delegates.Observers
 			return observer.Log.ToString();
 		}
 	}
-
-	//public interface IObserver
-	//{
-	//	void HandleEvent(object eventData);
-	//}
 
 	public class Observer
 	{
@@ -37,15 +30,6 @@ namespace Delegates.Observers
 		}
 	}
 
-	//public interface IObservable
-	//{
-	//	void Add(IObserver observer);
-	//	void Remove(IObserver observer);
-	//	//void Notify(object eventData);
-
-	//	event MyDelegate NotifyEvent;
-	//}
-
 	public delegate void MyDelegate(object obj);
 
 	public class ObservableStack<T>
@@ -53,28 +37,13 @@ namespace Delegates.Observers
 		List<Observer> observers = new List<Observer>();
 		public event MyDelegate NotifyEvent;
 
-		public void Add(Observer observer)
-		{
-			NotifyEvent += observer.HandleEvent;
-		}
-
-		//public void Notify(object eventData)
-		//{
-		//	foreach (var observer in observers)
-		//		observer.HandleEvent(eventData);
-		//}
-
-		public void Remove(Observer observer)
-		{
-			NotifyEvent -= observer.HandleEvent;
-		}
-
 		List<T> data = new List<T>();
 
 		public void Push(T obj)
 		{
 			data.Add(obj);
-			NotifyEvent(new StackEventData<T> { IsPushed = true, Value = obj });
+			NotifyEvent?.Invoke(new StackEventData<T> { IsPushed = true, Value = obj });
+			
 		}
 
 		public T Pop()
@@ -82,7 +51,7 @@ namespace Delegates.Observers
 		 	if (data.Count == 0)
 		 		throw new InvalidOperationException();
 		 	var result = data[data.Count - 1];
-		 	NotifyEvent(new StackEventData<T> { IsPushed = false, Value = result });
+			NotifyEvent?.Invoke(new StackEventData<T> { IsPushed = false, Value = result });
 		 	return result;
 			
 		}
